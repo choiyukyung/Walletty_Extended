@@ -1,16 +1,10 @@
 package com.example.demo.service;
 
-
-import com.example.demo.dto.MemberDTO;
 import com.example.demo.dto.PaymentDTO;
-import com.example.demo.entity.MemberEntity;
 import com.example.demo.entity.PaymentEntity;
-import com.example.demo.repository.MemberRepository;
 import com.example.demo.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service //스프링이 관리해주는 객체 == 스프링 빈
 @RequiredArgsConstructor //controller와 같이. final 멤버변수 생성자 만드는 역할

@@ -10,7 +10,6 @@ import com.example.demo.repository.StatisticsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -57,48 +56,10 @@ public class StatisticsService {
             double rate = ((double) acc.getTotalAmount() / (double) total * 100.0);
 
             // 통계DTO
-            StatisticsDTO statisticsDTO = new StatisticsDTO(memberId, acc.getEntry(), Math.round(rate*100)/100.0, week); //rate 소수점 둘째 자리까지만 보내기
+            StatisticsDTO statisticsDTO = new StatisticsDTO(memberId, acc.getEntry(), Math.round(rate * 100) / 100.0, week); //rate 소수점 둘째 자리까지만 보내기
             StatisticsEntity statisticsEntity = StatisticsEntity.toStatisticsEntity(statisticsDTO);
             statisticsRepository.save(statisticsEntity);
-            //statisticsEntity.setId(null);
-
-//            if(acc.getEntry() == "eatout"){
-//                statisticsDTO.setEatoutRate(rate);
-//            } else if (acc.getEntry() == "cafe") {
-//                statisticsDTO.setCafeRate(rate);
-//            } else if (acc.getEntry() == "deliver") {
-//                statisticsDTO.setDeliverRate(rate);
-//            } else if (acc.getEntry() == "shopping") {
-//                statisticsDTO.setShoppingRate(rate);
-//            } else if (acc.getEntry() == "taxi") {
-//                statisticsDTO.setTaxiRate(rate);
-//            } else if (acc.getEntry() == "beauty") {
-//                statisticsDTO.setBeautyRate(rate);
-//            } else if (acc.getEntry() == "snack") {
-//                statisticsDTO.setSnackRate(rate);
-//            }
         }
-
-//        // 이번 주 총 소비 내역
-//        Integer totalEntry = 0;
-//        for (AccountAnalyzeEntity acc : accountAnalyzeEntities) {
-//            totalEntry += acc.getTotalAmount();
-//        }
-
-//        Optional<AccountAnalyzeEntity> eatoutEntity = accountAnalyzeRepository.findByEntryAndMemberIdAndOrderWeek("eatout",memberId, date);
-//
-//        Optional<AccountAnalyzeEntity> cafeEntity = accountAnalyzeRepository.findByEntryAndMemberIdAndOrderWeek("cafe",memberId, date);
-//
-//        Optional<AccountAnalyzeEntity> deliverEntity = accountAnalyzeRepository.findByEntryAndMemberIdAndOrderWeek("deliver",memberId, date);
-//
-//        Optional<AccountAnalyzeEntity> shoppingEntity = accountAnalyzeRepository.findByEntryAndMemberIdAndOrderWeek("shopping",memberId, date);
-//
-//        Optional<AccountAnalyzeEntity> taxiEntity = accountAnalyzeRepository.findByEntryAndMemberIdAndOrderWeek("taxi",memberId, date);
-//
-//        Optional<AccountAnalyzeEntity> beautyEntity = accountAnalyzeRepository.findByEntryAndMemberIdAndOrderWeek("beauty",memberId, date);
-//
-//        Optional<AccountAnalyzeEntity> snackEntity = accountAnalyzeRepository.findByEntryAndMemberIdAndOrderWeek("snack",memberId, date);
-
 
     }
 }

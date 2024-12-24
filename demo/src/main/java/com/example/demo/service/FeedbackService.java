@@ -1,9 +1,6 @@
 package com.example.demo.service;
 
-
-import com.example.demo.dto.AccountAnalyzeDTO;
 import com.example.demo.dto.FeedbackDTO;
-import com.example.demo.entity.AccountAnalyzeEntity;
 import com.example.demo.entity.FeedbackCommentEntity;
 import com.example.demo.entity.FeedbackEntity;
 import com.example.demo.repository.FeedbackCommentRepository;

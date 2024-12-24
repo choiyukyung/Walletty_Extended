@@ -1,12 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.AccountAnalyzeDTO;
-import com.example.demo.dto.FeedbackDTO;
 import com.example.demo.dto.MissionDTO;
 import com.example.demo.dto.SurveyDTO;
 import com.example.demo.entity.AccountAnalyzeEntity;
-import com.example.demo.entity.FeedbackCommentEntity;
-import com.example.demo.entity.FeedbackEntity;
 import com.example.demo.entity.MissionEntity;
 import com.example.demo.repository.AccountAnalyzeRepository;
 import com.example.demo.repository.MissionRepository;
@@ -17,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 @Service
 @RequiredArgsConstructor

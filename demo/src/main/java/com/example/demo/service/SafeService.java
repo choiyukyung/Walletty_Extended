@@ -1,10 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.SafeDTO;
-import com.example.demo.entity.MissionEntity;
 import com.example.demo.entity.SafeEntity;
-import com.example.demo.repository.AccountAnalyzeRepository;
-import com.example.demo.repository.MissionRepository;
 import com.example.demo.repository.SafeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,9 +14,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SafeService {
     private final SafeRepository safeRepository;
-
-    private final MissionRepository missionRepository;
-    private final AccountAnalyzeRepository accountAnalyzeRepository;
 
     public void saveMissionId(int missionId) {
 
