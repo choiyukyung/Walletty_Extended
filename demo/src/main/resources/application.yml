@@ -18,8 +18,12 @@ spring:
     hibernate:
       ddl-auto: update
 
-#chatgpt:
-#  api-key: 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
 
 api-key:
   chat-gpt: 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
+
+# jwt(secret key는 git bash에 `openssl rand -hex 64`)
+jwt:
+  header: Authorization
+  secret: 0bf86013a3d6d9990a994f86ddd2013ad6c50d7d63f2671b8379c3a2eae4e594dca02fdd56afc3960d7c02f2ac501daf3f48f912bec7d57afad642bee075b79c
+  token-validity-in-seconds: 86400
