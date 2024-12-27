@@ -15,7 +15,8 @@ https://github.com/choiyukyung/Walletty
 *****
 </br></br>
 
-## 💡 Walletty_Server_Deploy는 개인 학습과 프로젝트 기능 개선을 위한 Repository 입니다.
+## 💡 Walletty_Server_Deploy
+Walletty 프로젝트를 기반으로 개인 학습을 진행하고, 해당 프로젝트의 기능 개선 및 확장을 목적으로 관리되는 Repository입니다.
 ### 🖥 Development Period
 2024 Dec. ~
 ### 📚 학습 기록
