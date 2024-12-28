@@ -4,12 +4,10 @@ import com.example.demo.dto.FeedbackCommentDTO;
 import com.example.demo.service.FeedbackCommentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Slf4j
 @RestController
@@ -17,12 +15,9 @@ import java.util.List;
 public class FeedbackCommentController {
     private final FeedbackCommentService feedbackCommentService;
 
-    @RequestMapping("/saveFeedbackComment")
+    @GetMapping("/saveFeedbackComment")
     public void saveFeedbackComment(){ // member controller에서 사용 중. 나중에 삭제.
-        // List feedbackCommentDTOList = new ArrayList();
-        // FeedbackCommentDTO feedbackCommentDTO = new FeedbackCommentDTO();
-        // feedbackCommentDTOList.add(feedbackCommentDTO);
-        ArrayList<FeedbackCommentDTO> feedbackCommentDTOList = new ArrayList<FeedbackCommentDTO>();
+        ArrayList<FeedbackCommentDTO> feedbackCommentDTOList = new ArrayList<>();
 
         feedbackCommentDTOList.add(new FeedbackCommentDTO(1,"돈이 하늘에서 떨어지니?"));
         feedbackCommentDTOList.add(new FeedbackCommentDTO(2,"절약은 미래에 대한 투자야!"));
@@ -36,10 +31,8 @@ public class FeedbackCommentController {
         feedbackCommentDTOList.add(new FeedbackCommentDTO(10,"에구 아까워라!"));
         feedbackCommentDTOList.add(new FeedbackCommentDTO(11,"돈을 여기에 너무 자주 쓰는 것 같아! "));
 
-        //List<FeedbackCommentDTO> feedbackCommentDTOList; // 값 넣기.
         for(FeedbackCommentDTO comment : feedbackCommentDTOList){
             feedbackCommentService.save();
         }
-        //return FeedbackCommentDTO;
     }
 }

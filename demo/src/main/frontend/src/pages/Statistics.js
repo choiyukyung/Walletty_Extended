@@ -52,7 +52,7 @@ const Statistics = () => {
     }
   }, []);
   useEffect(() => {
-    fetch("/statisticsDTOList", {
+    fetch("/statistics", {
       method: "POST",
       body: JSON.stringify({
         memberId: id,
@@ -69,7 +69,7 @@ const Statistics = () => {
       .catch((err) => {
         console.log(err);
       });
-    fetch("/statisticsDTOList", {
+    fetch("/statistics", {
       method: "POST",
       body: JSON.stringify({
         memberId: id,

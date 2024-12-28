@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/survey")
 public class SurveyController {
 
     private final AccountAnalyzeService accountAnalyzeService;
@@ -19,14 +20,11 @@ public class SurveyController {
     private final FeedbackService feedbackService;
     private final ProfileService profileService;
 
-    // ************* survey **************
-
-
     private final SurveyService surveyService;
 
-    // 설문조사 작성하고 db에 저장하기
-    @PostMapping(value="/member/survey")
-    public SurveyDTO setSurveyDTO(@RequestBody SurveyDTO surveyDTO){
+    // 설문조사 작성하고 db에 저장하기 /survey
+    @PostMapping
+    public SurveyDTO doSurvey(@RequestBody SurveyDTO surveyDTO){
         // 미션, 피드백 문장을 만들기 위한 [ 해당 회원 id / 미션, 피드백 시작 날짜 정보 ]
         String selectedMemberId = surveyDTO.getSurveyId();
         String startDate = accountAnalyzeService.findThisWeek(selectedMemberId);
@@ -62,30 +60,23 @@ public class SurveyController {
         return surveyDTO;
     }
 
-    // 설문조사 보여주기(로그인했을 때 id 가져와서)
-
-    @RequestMapping("/surveyDTO")
-    @ResponseBody
-    public SurveyDTO sendSurveyDTO(@RequestBody String memberId){
-        SurveyDTO surveyDTO = surveyService.findBySurveyId(memberId);
-        return surveyDTO;
+    // 설문조사 보여주기(로그인 id 가져와서) /survey
+    @GetMapping
+    public SurveyDTO sendSurveyDTO(@RequestParam String memberId){
+        return surveyService.findBySurveyId(memberId);
     }
 
 
-
-    // ************* survey_limit **************
-
     private final SurveyLimitService surveyLimitService;
 
-    @RequestMapping("/surveyLimitDTO")
-    @ResponseBody
+    // /survey/limit
+    @PostMapping("/limit")
     public SurveyLimitDTO sendSurveyLimit(@RequestBody SurveyDTO surveyDTO){
         int entry1totalAmount = accountAnalyzeService.findbySurveyIdAndEntry(surveyDTO.getSurveyId(), surveyDTO.getGoalEntry1());
         int entry2totalAmount = accountAnalyzeService.findbySurveyIdAndEntry(surveyDTO.getSurveyId(), surveyDTO.getGoalEntry2());
         int entry3totalAmount = accountAnalyzeService.findbySurveyIdAndEntry(surveyDTO.getSurveyId(), surveyDTO.getGoalEntry3());
 
-        SurveyLimitDTO surveyLimitDTO = surveyLimitService.save(surveyDTO.getSurveyId(), entry1totalAmount, entry2totalAmount, entry3totalAmount);
-        return surveyLimitDTO;
+        return surveyLimitService.save(surveyDTO.getSurveyId(), entry1totalAmount, entry2totalAmount, entry3totalAmount);
     }
 
 }

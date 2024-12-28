@@ -4,8 +4,8 @@ import com.example.demo.dto.StatisticsDTO;
 import com.example.demo.service.StatisticsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,20 +16,9 @@ import java.util.List;
 public class StatisticsController {
     private final StatisticsService statisticsService;
 
-    @RequestMapping("/statisticsDTOList")
+    @PostMapping("/statistics")
     public List<StatisticsDTO> sendStatisticsDTO(@RequestBody StatisticsDTO statistics){
-        List<StatisticsDTO> statisticsDTOList = statisticsService.findByMemberIdAndWeek(statistics.getMemberId(),statistics.getWeek());
-        return statisticsDTOList;
+        return statisticsService.findByMemberIdAndWeek(statistics.getMemberId(),statistics.getWeek());
     }
-
-//    @RequestMapping("/statisticsDTO")
-//    public StatisticsDTO sendStatisticsDTO(@RequestBody StatisticsDTO statistics){
-//        StatisticsDTO statisticsDTO = statisticsService.findByMemberId(statistics.getMemberId());
-//        return statisticsDTO;
-//    }
-
-//    @RequestMapping("/paymentList")
-
-//    @RequestMapping("/accountAnalyzeList")
 
 }

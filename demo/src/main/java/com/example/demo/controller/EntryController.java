@@ -4,7 +4,7 @@ import com.example.demo.dto.EntryDTO;
 import com.example.demo.service.EntryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class EntryController {
     private final EntryService entryService;
 
-    @RequestMapping("/saveEntry")
+    @GetMapping("/saveEntry")
     public void saveFeedbackComment(){ // member controller에서 사용 중. 나중에 삭제.
         ArrayList<EntryDTO> entryDTOList = new ArrayList<EntryDTO>();
 

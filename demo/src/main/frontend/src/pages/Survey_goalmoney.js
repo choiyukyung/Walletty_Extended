@@ -9,9 +9,9 @@ const Survey_goalmoney = () => {
   const fixedList = JSON.parse(localStorage.getItem("fixed_entry"));
   const goalList = JSON.parse(localStorage.getItem("goal_entry"));
   const [goalmoneyList, setGoalmoneyList] = useState({
-    goalmoney1: "",
-    goalmoney2: "",
-    goalmoney3: "",
+    goalmoney1: "10000",
+    goalmoney2: "10000",
+    goalmoney3: "10000",
   });
   const [leastGoalMoney, setLeastGoalMoney] = useState("");
   const [FilteredLeastGoalMoney, setFilteredLeastGoalMoney] = useState("");
@@ -36,7 +36,7 @@ const Survey_goalmoney = () => {
     ) {
       alert("모든 항목을 입력해 주세요.");
     } else {
-      fetch("/member/survey", {
+      fetch("/survey", {
         method: "POST",
         body: JSON.stringify({
           //local에서 꺼내쓰기
@@ -73,7 +73,7 @@ const Survey_goalmoney = () => {
   };
 
   useEffect(() => {
-    fetch("/surveyLimitDTO", {
+    fetch("/survey/limit", {
       method: "POST",
       body: JSON.stringify({
         surveyId: id,

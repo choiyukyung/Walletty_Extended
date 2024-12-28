@@ -11,8 +11,8 @@ const Ranking = () => {
 
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === "true") {
-      fetch("/rankingTop3", {
-        method: "POST",
+      fetch("/ranking/top3", {
+        method: "GET",
         body: JSON.stringify({}),
         headers: {
           "Content-Type": "application/json",
@@ -25,8 +25,8 @@ const Ranking = () => {
         .catch((err) => {
           console.log(err);
         });
-      fetch("/rankingFriend", {
-        method: "POST",
+      fetch("/ranking/friend", {
+        method: "GET",
         body: JSON.stringify({}),
         headers: {
           "Content-Type": "application/json",

@@ -42,8 +42,8 @@ public class MemberService {
         }
     }
 
-    public MemberDTO postMember(){
-        Optional<MemberEntity> byMemberId = memberRepository.findByMemberId("qq"); //여기는 프론트에서 받아오는 다른 값으로 바꾸기.
+    public MemberDTO postMember(String memberId){
+        Optional<MemberEntity> byMemberId = memberRepository.findByMemberId(memberId); //여기는 프론트에서 받아오는 다른 값으로 바꾸기.
         if(byMemberId.isPresent()){
             // 조회 결과가 있다
             MemberEntity memberEntity = byMemberId.get(); // Optional에서 꺼냄

@@ -1,20 +1,22 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.*;
-import com.example.demo.repository.AccountAnalyzeRepository;
-import com.example.demo.service.*;
+import com.example.demo.dto.PaymentDTO;
+import com.example.demo.service.AccountAnalyzeService;
+import com.example.demo.service.PaymentService;
+import com.example.demo.service.ProfileService;
+import com.example.demo.service.StatisticsService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -52,9 +54,6 @@ public class AccountAnalyzeController {
         ObjectMapper mapper = new ObjectMapper();
         try {
             // 스트링에서 DTO로 매핑하기
-            //PaymentDTO paymentDTO = mapper.readValue(paymentstr, PaymentDTO.class);
-            //System.out.println(paymentDTO);
-
             List<PaymentDTO> dtos = Arrays.asList(mapper.readValue(paymentstr, PaymentDTO[].class));
             System.out.println(dtos.size() + "개의 dto : " +dtos);
 

@@ -12,8 +12,8 @@ const Vault = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === "true") {
-      fetch("/safeDTO", {
-        method: "POST",
+      fetch("/safe", {
+        method: "GET",
         body: JSON.stringify({
           memberId: id,
         }),

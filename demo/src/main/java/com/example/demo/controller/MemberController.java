@@ -1,20 +1,21 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.*;
+import com.example.demo.dto.AccountAnalyzeDTO;
+import com.example.demo.dto.ChatGptResponse;
+import com.example.demo.dto.MemberDTO;
+import com.example.demo.dto.SurveyDTO;
 import com.example.demo.service.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Slf4j
 @RestController
-@RequiredArgsConstructor //MemberService에 대한 멤버를 사용 가능
+@RequiredArgsConstructor
+@RequestMapping("/member")  // 클래스 레벨에서 공통 경로를 설정
 public class MemberController {
-
 
     // ************* join / login **************
 
@@ -29,8 +30,8 @@ public class MemberController {
     private final ProfileService profileService;
     private final SurveyService surveyService;
 
-    // 회원가입 로직
-    @PostMapping("/member/join")   // 나중에 RequestMapping으로 수정
+    // 회원가입
+    @PostMapping("/join") // /member/join 경로로 매핑
     public MemberDTO join(@RequestBody MemberDTO memberDTO){ // /join에서 받은 회원가입 정보를 /member/join에서 받아오기
         memberService.save(memberDTO);  // 받아온 값으로 회원가입하기, 이미 있는 회원 고려 안 함 >> 우리가 값 넣을 때 없는 값으로만 넣기.
         entryService.save(); // 회원가입 하면 자동으로 entry_table에 값 들어가도록
@@ -38,8 +39,8 @@ public class MemberController {
         return memberDTO;
     }
 
-    // 로그인 로직
-    @PostMapping("/member/login")
+    // 로그인
+    @PostMapping("/login") // /member/login 경로로 매핑
     public String login(@RequestBody MemberDTO memberDTO){ // /login에서 받은 로그인 정보를 /member/login에서 받아오기
         MemberDTO loginResult = memberService.login(memberDTO); // 해당 회원이 member_table에 있는지 확인
         if (loginResult != null) { // login 성공
@@ -104,14 +105,11 @@ public class MemberController {
         }
     }
 
-    // 회원 정보 보여주기
-    @RequestMapping("/api/v1/member")
-    @ResponseBody
-    public MemberDTO postMember() { //member정보 보내기
-        MemberDTO loginResult = memberService.postMember();
-        return loginResult;
+    // 회원 정보 조회
+    @GetMapping("/{memberId}") // /member/{memberId} 경로로 매핑
+    public MemberDTO getMember(@PathVariable String memberId) {
+        return memberService.postMember(memberId);
     }
-
 
 
 }
