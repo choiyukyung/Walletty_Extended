@@ -23,3 +23,10 @@ spring:
 
 api-key:
   chat-gpt: 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
+
+# Swagger 비활성화
+#springdoc:
+#  swagger-ui:
+#    enabled: false  # Swagger UI 비활성화
+#  api-docs:
+#    enabled: false  # API 문서 JSON 비활성화
