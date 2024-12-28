@@ -35,6 +35,9 @@ dependencies {
 	implementation 'io.github.flashvayne:chatgpt-spring-boot-starter:1.0.0'
 
 	implementation 'com.jayway.jsonpath:json-path:2.7.0'
+
+	// swagger
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
 }
 
 tasks.named('test') {
