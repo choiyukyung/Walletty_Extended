@@ -1,12 +1,13 @@
+server:
+  port: 8088
 #database 연동 설정
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    # 각자 PC에 만들어놓은 Database이름을 써야 합니다.
-    url: jdbc:mysql://127.0.0.1:3306/capstone1 # Database이름 ?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    #    mysql에 생성한 사용자 계정 정보를 써야 합니다.
-    username: host
-    password: 1234 #자신의 mysql 비밀번호
+    #url: jdbc:mysql://127.0.0.1:3306/capstone1 # ?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://mysql-container:3306/capstone1
+    username: root
+    password: 1234
   thymeleaf:
     cache: false
 
@@ -18,15 +19,12 @@ spring:
     hibernate:
       ddl-auto: update
 
-#chatgpt:
-#  api-key: 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
-
 api-key:
   chat-gpt: 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
 
 # Swagger 비활성화
-#springdoc:
-#  swagger-ui:
-#    enabled: false  # Swagger UI 비활성화
-#  api-docs:
-#    enabled: false  # API 문서 JSON 비활성화
+springdoc:
+  swagger-ui:
+    enabled: false  # Swagger UI 비활성화
+  api-docs:
+    enabled: false  # API 문서 JSON 비활성화
