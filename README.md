@@ -27,4 +27,9 @@ Walletty 프로젝트를 기반으로 개인 학습을 진행하고, 해당 프�
 ![스크린샷 2024-12-28 174324](https://github.com/user-attachments/assets/5586afec-c081-487a-b23f-737d22dfb7e3) | ![스크린샷 2024-12-28 174333](https://github.com/user-attachments/assets/ce484295-88a0-4553-8368-8dc8dc21ff0b) | ![스크린샷 2024-12-28 174338](https://github.com/user-attachments/assets/57ad4a96-0527-4e87-a3a1-8f975a87b465) | ![스크린샷 2024-12-28 174347](https://github.com/user-attachments/assets/61e15548-0ba7-4538-aa7c-046c8fef74aa) | ![스크린샷 2024-12-28 174355](https://github.com/user-attachments/assets/e4a2c618-e8d5-42c1-8efc-df04c5d80e35) | ![스크린샷 2024-12-28 174611](https://github.com/user-attachments/assets/371ceabe-76dd-46d3-92e1-a28a0c1892a2) | ![스크린샷 2024-12-28 174619](https://github.com/user-attachments/assets/d769b911-8111-4aaa-b222-db39a758503a)
 --- | --- | --- | --- | --- | --- | --- |
 
+3. **Docker** : MySQL DB와 프로젝트 각각 이미지 생성한 후 네트워크로 묶어 컨테이너화.(docker branch)
 
+![스크린샷 2025-01-02 042513](https://github.com/user-attachments/assets/f5cc5ce7-213e-4220-b0c5-699a6b9f203b) | ![스크린샷 2025-01-02 042544](https://github.com/user-attachments/assets/6243a474-204a-483b-8248-264922acae2d) | ![스크린샷 2025-01-02 042541](https://github.com/user-attachments/assets/4e84ec31-0518-4c8e-ba4e-84545ea5cb19)
+--- | --- | --- |
+
+4. 
