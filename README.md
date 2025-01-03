@@ -32,6 +32,8 @@ Walletty 팀프로젝트를 기반으로, 학습을 심화하고 기능을 확�
 ![스크린샷 2025-01-02 042513](https://github.com/user-attachments/assets/f5cc5ce7-213e-4220-b0c5-699a6b9f203b) | ![스크린샷 2025-01-02 042544](https://github.com/user-attachments/assets/6243a474-204a-483b-8248-264922acae2d) | ![스크린샷 2025-01-02 042541](https://github.com/user-attachments/assets/4e84ec31-0518-4c8e-ba4e-84545ea5cb19)
 --- | --- | --- |
 
+4. **AWS EC2, RDS** : AWS에 RDS에 DB 설정하고 EC2에 프로젝트 배포(aws branch)</br>
 
-### 🌌 Architecture
-![아키텍처](https://github.com/user-attachments/assets/29399997-0f64-4ad7-a54b-39f644d974c7)
+![스크린샷 2025-01-03 234457](https://github.com/user-attachments/assets/b6ae4b5f-6bea-4788-9029-60bedc1e658b)
+
+
