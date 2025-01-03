@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserDispatch } from "../context/UserContext";
 import Button from "../components/Button";
 
-const URL = "http://localhost:8080";
+const URL = process.env.REACT_APP_API_URL;
 
 const Join = () => {
   const [state, setState] = useState({
